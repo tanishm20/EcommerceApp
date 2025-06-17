@@ -1,7 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
-
-const dummyReducer = () => ({});
+import { homeSlice } from 'src/screens/homeScreen/redux/home.api.slice';
 
 export const rootReducer = combineReducers({
-  dummy: dummyReducer,
+  homeSlice: homeSlice.reducer,
 });

@@ -1,0 +1,329 @@
+{
+  "banners": [
+    {
+      "id": "1",
+      "image": "https://media.licdn.com/dms/image/v2/C5622AQG0qDIC4ix1gA/feedshare-shrink_800/feedshare-shrink_800/0/1648800007200?e=2147483647&v=beta&t=tJ_4A1hfbe6DAIDeC2cDC3bsnrnfFHPcg4QswCX2Qw4"
+    },
+    {
+      "id": "2",
+      "image": "https://mir-s3-cdn-cf.behance.net/project_modules/1400/825d5c178395899.64e732902b573.png"
+    },
+    {
+      "id": "3",
+      "image": "https://static.vecteezy.com/system/resources/previews/011/594/201/non_2x/flash-sale-banner-template-on-hot-color-background-free-vector.jpg"
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "name": "Wireless Headphones",
+      "image": "https://images.unsplash.com/photo-1585386959984-a41552262c61?auto=format&fit=crop&w=200&q=80",
+      "price": 1299,
+      "tags": ["Free Delivery", "Selling Fast"]
+    },
+    {
+      "id": "p2",
+      "name": "Smartwatch",
+      "image": "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=200&q=80",
+      "price": 2599,
+      "tags": ["Free Delivery"]
+    },
+    {
+      "id": "p3",
+      "name": "Gaming Mouse",
+      "image": "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?auto=format&fit=crop&w=200&q=80",
+      "price": 999,
+      "tags": ["Limited Stock"]
+    },
+    {
+      "id": "p4",
+      "name": "Bluetooth Speaker",
+      "image": "https://images.unsplash.com/photo-1612446941545-132facf203f5?auto=format&fit=crop&w=200&q=80",
+      "price": 1499,
+      "tags": ["Free Delivery"]
+    },
+    {
+      "id": "p5",
+      "name": "DSLR Camera",
+      "image": "https://images.unsplash.com/photo-1519183071298-a2962f37577e?auto=format&fit=crop&w=200&q=80",
+      "price": 45999
+    },
+    {
+      "id": "p6",
+      "name": "Laptop Stand",
+      "image": "https://images.unsplash.com/photo-1580894908361-9671950330d2?auto=format&fit=crop&w=200&q=80",
+      "price": 499,
+      "tags": ["Best Seller"]
+    },
+    {
+      "id": "p7",
+      "name": "Wireless Charger",
+      "image": "https://images.unsplash.com/photo-1597764692167-e50b0e14ab0c?auto=format&fit=crop&w=200&q=80",
+      "price": 899
+    },
+    {
+      "id": "p8",
+      "name": "Fitness Tracker",
+      "image": "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=200&q=80",
+      "price": 1999,
+      "tags": ["Selling Fast"]
+    },
+    {
+      "id": "p9",
+      "name": "Smart Bulb",
+      "image": "https://images.unsplash.com/photo-1581092160613-2c72a0c3c3d9?auto=format&fit=crop&w=200&q=80",
+      "price": 599
+    },
+    {
+      "id": "p10",
+      "name": "Portable Monitor",
+      "image": "https://images.unsplash.com/photo-1590642914054-fd7b8f2b9895?auto=format&fit=crop&w=200&q=80",
+      "price": 8999,
+      "tags": ["New Arrival"]
+    },
+    {
+      "id": "p11",
+      "name": "Tablet Stand",
+      "image": "https://images.unsplash.com/photo-1573497019410-cf4fc5e38128?auto=format&fit=crop&w=200&q=80",
+      "price": 699
+    },
+    {
+      "id": "p12",
+      "name": "Noise Cancelling Headphones",
+      "image": "https://images.unsplash.com/photo-1580894748361-cf73f1a1acdb?auto=format&fit=crop&w=200&q=80",
+      "price": 3499,
+      "tags": ["Free Delivery", "Limited Stock"]
+    },
+    {
+      "id": "p13",
+      "name": "USB-C Docking Station",
+      "image": "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=200&q=80",
+      "price": 2999
+    },
+    {
+      "id": "p14",
+      "name": "Wireless Headphones",
+      "image": "https://images.unsplash.com/photo-1585386959984-a41552262c61?auto=format&fit=crop&w=200&q=80",
+      "price": 1299,
+      "tags": ["Free Delivery", "Selling Fast"]
+    },
+    {
+      "id": "p15",
+      "name": "Smartwatch",
+      "image": "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=200&q=80",
+      "price": 2599,
+      "tags": ["Free Delivery"]
+    },
+    {
+      "id": "p16",
+      "name": "Gaming Mouse",
+      "image": "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?auto=format&fit=crop&w=200&q=80",
+      "price": 999,
+      "tags": ["Limited Stock"]
+    },
+
+    {
+      "id": "p17",
+      "name": "Bluetooth Speaker",
+      "image": "https://images.unsplash.com/photo-1580894908361-967195033215",
+      "price": 1799,
+      "tags": ["Free Delivery", "Selling Fast"]
+    },
+    {
+      "id": "p18",
+      "name": "Wireless Charger",
+      "image": "https://images.unsplash.com/photo-1616627784274-0ec80e8ac7e7",
+      "price": 899,
+      "tags": ["Free Delivery"]
+    },
+    {
+      "id": "p19",
+      "name": "DSLR Camera",
+      "image": "https://images.unsplash.com/photo-1495433324511-bf8e92934d90",
+      "price": 45999,
+      "tags": ["Limited Stock"]
+    },
+    {
+      "id": "p20",
+      "name": "Gaming Keyboard",
+      "image": "https://images.unsplash.com/photo-1593642532400-2682810df593",
+      "price": 2999,
+      "tags": ["Best Seller"]
+    },
+    {
+      "id": "p21",
+      "name": "Noise Cancelling Headphones",
+      "image": "https://images.unsplash.com/photo-1611078489935-0cb964a7dc07",
+      "price": 4999,
+      "tags": ["Free Delivery"]
+    },
+    {
+      "id": "p22",
+      "name": "iPad Mini",
+      "image": "https://images.unsplash.com/photo-1603899128495-3e8c568b3f3f",
+      "price": 39999,
+      "tags": ["Limited Stock"]
+    },
+    {
+      "id": "p23",
+      "name": "Laptop Stand",
+      "image": "https://images.unsplash.com/photo-1587574293340-ec1e5f0eacb4",
+      "price": 1299,
+      "tags": ["Free Delivery"]
+    },
+    {
+      "id": "p24",
+      "name": "Mechanical Watch",
+      "image": "https://images.unsplash.com/photo-1518544889600-16b2dbb0b7e1",
+      "price": 7999,
+      "tags": ["Trending"]
+    },
+    {
+      "id": "p25",
+      "name": "Home Security Camera",
+      "image": "https://images.unsplash.com/photo-1605792657660-596af9009a1b",
+      "price": 3499,
+      "tags": ["Free Delivery"]
+    },
+    {
+      "id": "p26",
+      "name": "4K Smart TV",
+      "image": "https://images.unsplash.com/photo-1617957743560-5a38dd36b2a6",
+      "price": 57999,
+      "tags": ["Limited Offer"]
+    },
+    {
+      "id": "p27",
+      "name": "Fitness Tracker",
+      "image": "https://images.unsplash.com/photo-1619856630622-37d9d03f6c01",
+      "price": 2599,
+      "tags": ["Selling Fast"]
+    },
+    {
+      "id": "p28",
+      "name": "Desk Lamp",
+      "image": "https://images.unsplash.com/photo-1607082349564-52b4b8dd5f58",
+      "price": 699,
+      "tags": ["Free Delivery"]
+    },
+    {
+      "id": "p29",
+      "name": "Wireless Earbuds",
+      "image": "https://images.unsplash.com/photo-1626171053629-4d54e44e74aa",
+      "price": 1599
+    },
+    {
+      "id": "p30",
+      "name": "Smartphone Gimbal",
+      "image": "https://images.unsplash.com/photo-1629709862323-10eaaed2c171",
+      "price": 3199,
+      "tags": ["Free Delivery", "Limited Stock"]
+    },
+    {
+      "id": "p31",
+      "name": "Standing Desk",
+      "image": "https://images.unsplash.com/photo-1587825140708-dfaf72ae4f55",
+      "price": 10499,
+      "tags": ["Work From Home"]
+    },
+    {
+      "id": "p32",
+      "name": "Electric Toothbrush",
+      "image": "https://images.unsplash.com/photo-1606813902913-94d83bfc0576",
+      "price": 2499
+    },
+    {
+      "id": "p33",
+      "name": "Smart Door Lock",
+      "image": "https://images.unsplash.com/photo-1631000211875-4ee8a70603a0",
+      "price": 7999,
+      "tags": ["New Arrival"]
+    },
+    {
+      "id": "p34",
+      "name": "Coffee Machine",
+      "image": "https://images.unsplash.com/photo-1556910103-1c102b43b64e",
+      "price": 6999,
+      "tags": ["Trending", "Free Delivery"]
+    },
+    {
+      "id": "p35",
+      "name": "Smart Light Bulbs",
+      "image": "https://images.unsplash.com/photo-1566203542229-91aa4f1f1f55",
+      "price": 1199,
+      "tags": ["Energy Saver"]
+    },
+    {
+      "id": "p36",
+      "name": "Smart Vacuum Cleaner",
+      "image": "https://images.unsplash.com/photo-1614315040574-827da7c1e2a5",
+      "price": 12499,
+      "tags": ["Limited Stock"]
+    },
+    {
+      "id": "p37",
+      "name": "Portable Monitor",
+      "image": "https://images.unsplash.com/photo-1612817159481-763ccf10a3b7",
+      "price": 8799,
+      "tags": ["Free Delivery"]
+    },
+    {
+      "id": "p38",
+      "name": "Power Bank 20000mAh",
+      "image": "https://images.unsplash.com/photo-1618401473897-62d2e8586c3a",
+      "price": 1999
+    },
+    {
+      "id": "p39",
+      "name": "Smart Plug",
+      "image": "https://images.unsplash.com/photo-1591814466795-5aeb9d9b1d6f",
+      "price": 899
+    },
+    {
+      "id": "p40",
+      "name": "Ergonomic Chair",
+      "image": "https://images.unsplash.com/photo-1598300053050-776006b0f0b6",
+      "price": 14499,
+      "tags": ["Office Essentials"]
+    },
+    {
+      "id": "p41",
+      "name": "Air Purifier",
+      "image": "https://images.unsplash.com/photo-1616627563634-5b377d25fdba",
+      "price": 9499
+    },
+    {
+      "id": "p42",
+      "name": "HD Webcam",
+      "image": "https://images.unsplash.com/photo-1610563166151-8f752a898d83",
+      "price": 3299,
+      "tags": ["Work From Home"]
+    },
+    {
+      "id": "p43",
+      "name": "Tabletop Tripod",
+      "image": "https://images.unsplash.com/photo-1623478842532-4a8b3a9a6ac2",
+      "price": 799,
+      "tags": ["Free Delivery"]
+    },
+    {
+      "id": "p44",
+      "name": "Smart Thermostat",
+      "image": "https://images.unsplash.com/photo-1601597111592-d7a362ce3b8e",
+      "price": 6499
+    },
+    {
+      "id": "p45",
+      "name": "Bluetooth Tracker",
+      "image": "https://images.unsplash.com/photo-1608571423114-7719a293bf0c",
+      "price": 499,
+      "tags": ["Popular"]
+    },
+    {
+      "id": "p46",
+      "name": "Action Camera",
+      "image": "https://images.unsplash.com/photo-1583337130417-3346a1d3a3aa",
+      "price": 7499
+    }
+  ]
+}

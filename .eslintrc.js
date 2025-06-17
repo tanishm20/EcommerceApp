@@ -8,6 +8,9 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'prettier',
   ],
+  rules: {
+    'react-native/no-color-literals': 'off', // or remove it entirely
+  },
   plugins: ['react', 'react-native', '@typescript-eslint'],
   env: {
     'react-native/react-native': true,

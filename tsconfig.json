@@ -19,7 +19,8 @@
       "@navigation/*": ["./src/navigation/*"],
       "@redux/*": ["./src/redux/*"],
       "@screens/*": ["./src/screens/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      "@mockData/*": ["./src/mockData/*"]
     }
   },
   "include": [
@@ -32,6 +33,7 @@
     "src/redux",
     "src/screens",
     "src/utils",
+    "src/mockData",
     "mock-server",
     "__tests__",
     "@types/*"
