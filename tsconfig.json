@@ -1,3 +1,45 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
+  "compilerOptions": {
+    "jsx": "react-native",
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "types": ["node", "jest"],
+    "baseUrl": "./",
+    "paths": {
+      "app/*": ["./app/*"],
+      "@common/*": ["./app/common/*"],
+      "@modules/*": ["./app/modules/*"],
+      "@config/*": ["./app/config/*"],
+      "@constants/*": ["./app/common/constants/*"],
+      "@utils/*": ["./app/common/utils/*"],
+      "@hooks/*": ["./app/common/hooks/*"],
+      "@models/*": ["./app/common/models/*"],
+      "@store/*": ["./app/common/redux/*"],
+      "@assets/*": ["./app/assets/*"],
+      "@riyad-bank/dynatrace": ["dynatrace/*"]
+    }
+  },
+  "include": [
+    "App.tsx",
+    "app",
+    "app/*",
+    "app/assets",
+    "app/common",
+    "app/modules",
+    "app/config",
+    "declarations.d.ts",
+    "jest.config.ts",
+    "automation",
+    "mock-server",
+    "__tests__",
+    "@types/*"
+  ],
+  "exclude": ["node_modules", "node_modules/*"]
 }
