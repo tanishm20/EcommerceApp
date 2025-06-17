@@ -10,6 +10,7 @@ import {
   Pressable,
   KeyboardAvoidingView,
   Platform,
+  TextInputSubmitEditingEventData,
 } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import productList from '@mockData/ProductList.json';
@@ -22,7 +23,7 @@ import { setFilteredData } from './redux/home.api.slice';
 const { width } = Dimensions.get('window');
 
 export const HomeScreen = () => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState<string>();
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   const dispatch = useDispatch();
 
@@ -32,14 +33,22 @@ export const HomeScreen = () => {
         product.name.toLowerCase().includes(text.toLowerCase()),
       );
       if (filtered?.length > 0) {
-        setQuery('');
+        setQuery(undefined);
         dispatch(setFilteredData({ data: filtered }));
         navigation.navigate(SEARCH_SCREEN);
       } else {
-        setQuery('');
+        setQuery(undefined);
         dispatch(setFilteredData({ data: undefined }));
       }
     }
+  };
+
+  const onSubmitEditing = ({
+    nativeEvent,
+  }: {
+    nativeEvent: TextInputSubmitEditingEventData;
+  }) => {
+    handleSearch(nativeEvent.text)();
   };
 
   return (
@@ -52,9 +61,12 @@ export const HomeScreen = () => {
           placeholder="Search products..."
           value={query}
           onChangeText={setQuery}
+          onSubmitEditing={onSubmitEditing}
         />
 
-        <Pressable style={styles.searchButton} onPress={handleSearch(query)}>
+        <Pressable
+          style={styles.searchButton}
+          onPress={handleSearch(query ?? '')}>
           <Text style={styles.searchText}>Search</Text>
         </Pressable>
       </View>
