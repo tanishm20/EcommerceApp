@@ -83,7 +83,9 @@ export const ProductDetailsScreen = () => {
       <TouchableOpacity
         style={styles.cartButton}
         onPress={() => navigation.navigate(CART_SCREEN)}>
-        <Text style={styles.cartText}>View cart 🛒({getTotalItems()})</Text>
+        <Text style={styles.cartText}>
+          View cart 🛒({getTotalItems() ?? 0})
+        </Text>
       </TouchableOpacity>
     </View>
   );
