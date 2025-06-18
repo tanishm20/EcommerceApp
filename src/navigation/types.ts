@@ -3,4 +3,6 @@ export type TRootStackParamList = {
   Search: undefined;
   ProductDetials: undefined;
   Cart: undefined;
+  CartSummary: undefined;
+  Success: undefined;
 };

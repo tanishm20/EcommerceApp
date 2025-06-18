@@ -16,18 +16,13 @@ import { selectCartItemData } from '../productDetailsScreen/redux/product.api.se
 import { setCartItem } from '../productDetailsScreen/redux/product.api.slice';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { CART_SUMMARY_SCREEN } from 'src/utils/routesConstants';
 
 export const CartScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   const dispatch = useDispatch();
   const cartData = useSelector(selectCartItemData);
   const { addToCart, removeFromCart, getItemCount } = useCartHook();
-  const totalPrice =
-    cartData?.reduce((acc, item) => acc + item.price * getItemCount(item), 0) ||
-    0;
-  const shipping = 50;
-  const vat = 0.15 * totalPrice;
-  const totalAmount = totalPrice + shipping + vat;
   const [modalVisible, setModalVisible] = useState(false);
   const [itemToRemove, setItemToRemove] = useState<IProductDataType>();
 
@@ -135,28 +130,25 @@ export const CartScreen = () => {
       <View style={styles.secondContainer}>
         {!isCartEmpty ? (
           <View style={styles.priceDetailsContainer}>
-            <Text style={styles.priceHeader}>Price Details</Text>
+            <Text style={styles.priceHeader}>Total Order Summary</Text>
             <View style={styles.priceRow}>
-              <Text>Total Price</Text>
-              <Text>₹{totalPrice.toFixed(2)}</Text>
+              <Text>Total Items</Text>
+              <Text>{cartData?.length || 0}</Text>
             </View>
             <View style={styles.priceRow}>
-              <Text>Shipping Charges</Text>
-              <Text>₹{shipping}</Text>
-            </View>
-            <View style={styles.priceRow}>
-              <Text>VAT (15%)</Text>
-              <Text>₹{vat.toFixed(2)}</Text>
-            </View>
-            <View style={styles.separator} />
-            <View style={styles.priceRow}>
-              <Text style={styles.totalLabel}>Total Amount</Text>
-              <Text style={styles.totalLabel}>₹{totalAmount.toFixed(2)}</Text>
+              <Text>Total Quantity</Text>
+              <Text>
+                {cartData?.reduce((acc, item) => acc + getItemCount(item), 0) ||
+                  0}
+              </Text>
             </View>
           </View>
         ) : null}
         <TouchableOpacity
           style={[styles.checkoutButton, isCartEmpty && styles.disabledButton]}
+          onPress={() => {
+            navigation.navigate(CART_SUMMARY_SCREEN);
+          }}
           disabled={isCartEmpty}>
           <Text style={styles.checkoutText}>Checkout</Text>
         </TouchableOpacity>
@@ -210,7 +202,6 @@ const styles = StyleSheet.create({
   disabledButton: {
     backgroundColor: '#808080',
   },
-
   emptyText: {
     color: '#333',
     fontSize: 18,
@@ -319,14 +310,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#FEEF0190',
     paddingHorizontal: 16,
     paddingTop: 16,
-  },
-  separator: {
-    borderBottomColor: '#ccc',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    marginVertical: 12,
-  },
-  totalLabel: {
-    fontSize: 16,
-    fontWeight: 'bold',
   },
 });
