@@ -1,20 +1,11 @@
-import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { IProductDataType } from '../homeScreen/redux/home.initialState';
-import { useCartHook } from 'src/hooks/useCartHook';
-import { selectCartItemData } from '../productDetailsScreen/redux/product.api.selector';
-import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { SUCCESS_SCREEN } from 'src/utils/routesConstants';
-import { setCartItem } from '../productDetailsScreen/redux/product.api.slice';
+import { useCartHook } from '@hooks/useCartHook';
+import { selectCartItemData } from '@screens/productDetailsScreen/redux/product.api.selector';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { SUCCESS_SCREEN } from '@utils/routesConstants';
+import { setCartItem } from '@screens/productDetailsScreen/redux/product.api.slice';
 
 export const useCartSummaryScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();

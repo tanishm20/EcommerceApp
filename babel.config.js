@@ -13,7 +13,8 @@ module.exports = {
           '@redux': './src/redux',
           '@screens': './src/screens',
           '@utils': './src/utils',
-          '@mockData': './src/mockData'
+          '@mockData': './src/mockData',
+          '@hooks': './src/hooks'
         },
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       },

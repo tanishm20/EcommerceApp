@@ -1,12 +1,12 @@
 import { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { IProductDataType } from '../homeScreen/redux/home.initialState';
-import { useCartHook } from 'src/hooks/useCartHook';
-import { selectCartItemData } from '../productDetailsScreen/redux/product.api.selector';
-import { setCartItem } from '../productDetailsScreen/redux/product.api.slice';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { CART_SUMMARY_SCREEN } from 'src/utils/routesConstants';
+import { IProductDataType } from '@screens/homeScreen/redux/home.initialState';
+import { useCartHook } from '@hooks/useCartHook';
+import { selectCartItemData } from '@screens/productDetailsScreen/redux/product.api.selector';
+import { setCartItem } from '@screens/productDetailsScreen/redux/product.api.slice';
+import { CART_SUMMARY_SCREEN } from '@utils/routesConstants';
 
 export const useCartScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();

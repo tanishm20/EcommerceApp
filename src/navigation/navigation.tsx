@@ -8,14 +8,14 @@ import {
   PRODUCT_DETAILS_SCREEN,
   SEARCH_SCREEN,
   SUCCESS_SCREEN,
-} from 'src/utils/routesConstants';
+} from '@utils/routesConstants';
 import { HomeScreen } from '@screens/homeScreen/homeScreen';
 import { SearchScreen } from '@screens/searchScreen/searchScreen';
-import { TRootStackParamList } from './types';
 import { ProductDetailsScreen } from '@screens/productDetailsScreen/productDetailsScreen';
 import { CartScreen } from '@screens/cartScreen/cartScreen';
 import { CartSummaryScreen } from '@screens/cartSummaryScreen/cartSummaryScreen';
 import { SuccessScreen } from '@screens/successScreen/successScreen';
+import { TRootStackParamList } from './types';
 
 const Stack = createNativeStackNavigator<TRootStackParamList>();
 

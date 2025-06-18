@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation, ParamListBase } from '@react-navigation/native';
-import { HOME_SCREEN } from 'src/utils/routesConstants';
+import { HOME_SCREEN } from '@utils/routesConstants';
 
 export const SuccessScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();

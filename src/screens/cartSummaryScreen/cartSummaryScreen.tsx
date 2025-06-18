@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useCartSummaryScreen } from './useCartSummaryScreen';
-import { BackComponent } from 'src/common/backComponent';
+import { BackComponent } from '@common/backComponent/backComponent';
 import { PriceSummarySection } from './component/priceSummary/priceSummary';
 import { CartItem } from './component/cartItem/cartItem';
 import { PaymentMethodSection } from './component/paymentMethod/paymentMethod';

@@ -7,9 +7,9 @@ import {
   StyleSheet,
 } from 'react-native';
 import { useCartScreen } from './useCartScreen';
-import { RemoveItemModal } from '@common/removeItemModal';
-import { CartItem } from 'src/screens/cartScreen/component/cartItem/cartItem';
-import { BackComponent } from 'src/common/backComponent';
+import { RemoveItemModal } from '@screens/cartScreen/component/removeItemModal/removeItemModal';
+import { CartItem } from '@screens/cartScreen/component/cartItem/cartItem';
+import { BackComponent } from '@common/backComponent/backComponent';
 
 export const CartScreen = () => {
   const {

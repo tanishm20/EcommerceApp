@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { IProductDataType } from 'src/screens/homeScreen/redux/home.initialState';
+import { IProductDataType } from '@screens/homeScreen/redux/home.initialState';
 
 interface ICartItemProps {
   item: IProductDataType;

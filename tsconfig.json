@@ -20,7 +20,8 @@
       "@redux/*": ["./src/redux/*"],
       "@screens/*": ["./src/screens/*"],
       "@utils/*": ["./src/utils/*"],
-      "@mockData/*": ["./src/mockData/*"]
+      "@mockData/*": ["./src/mockData/*"],
+      "@hooks/*": ["./src/hooks/*"]
     }
   },
   "include": [
@@ -34,6 +35,7 @@
     "src/screens",
     "src/utils",
     "src/mockData",
+    "src/hooks",
     "mock-server",
     "__tests__",
     "@types/*"

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectCartItemData } from '@screens/productDetailsScreen/redux/product.api.selector';
 import { IProductDataType } from '@screens/homeScreen/redux/home.initialState';
 import { setCartItem } from '@screens/productDetailsScreen/redux/product.api.slice';
-import { TProductType } from 'src/screens/productDetailsScreen/type/productType';
+import { TProductType } from '@screens/productDetailsScreen/type/productType';
 
 export const useCartHook = () => {
   const dispatch = useDispatch();

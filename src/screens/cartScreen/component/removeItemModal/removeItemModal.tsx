@@ -23,7 +23,7 @@ export const RemoveItemModal = ({
             </Pressable>
             <Pressable
               onPress={() => setModalVisible(false)}
-              style={styles.modalCancel}>
+              style={styles.modalConfirm}>
               <Text style={styles.modalButtonText}>Cancel</Text>
             </Pressable>
           </View>
@@ -48,14 +48,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
-  },
-  modalCancel: {
-    alignItems: 'center',
-    backgroundColor: '#808080',
-    borderRadius: 8,
-    flex: 1,
-    marginLeft: 8,
-    padding: 12,
   },
   modalConfirm: {
     alignItems: 'center',
