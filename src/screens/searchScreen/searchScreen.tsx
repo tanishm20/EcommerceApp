@@ -7,11 +7,13 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
+  Pressable,
 } from 'react-native';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useSelector } from 'react-redux';
 import { selectFilteredData } from '../homeScreen/redux/home.api.selector';
+import { PRODUCT_DETAILS_SCREEN } from 'src/utils/routesConstants';
 
 const { width } = Dimensions.get('window');
 
@@ -37,7 +39,11 @@ export const SearchScreen = () => {
         nestedScrollEnabled
         contentContainerStyle={styles.carouselContainer}
         renderItem={({ item }) => (
-          <View style={styles.productCard}>
+          <Pressable
+            style={styles.productCard}
+            onPress={() => {
+              navigation.navigate(PRODUCT_DETAILS_SCREEN, { product: item });
+            }}>
             <Image
               source={{ uri: item.image }}
               style={styles.productImage}
@@ -51,7 +57,7 @@ export const SearchScreen = () => {
                   {tag}
                 </Text>
               ))}
-          </View>
+          </Pressable>
         )}
       />
     </View>

@@ -4,6 +4,7 @@ export interface IProductDataType {
   image: string;
   price: number;
   tags?: string[];
+  description: string;
 }
 type TAuthState = {
   filteredData?: IProductDataType[];

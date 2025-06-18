@@ -1,10 +1,15 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { HOME_SCREEN, SEARCH_SCREEN } from 'src/utils/routesConstants';
+import {
+  HOME_SCREEN,
+  PRODUCT_DETAILS_SCREEN,
+  SEARCH_SCREEN,
+} from 'src/utils/routesConstants';
 import { HomeScreen } from '@screens/homeScreen/homeScreen';
 import { SearchScreen } from '@screens/searchScreen/searchScreen';
 import { TRootStackParamList } from './types';
+import { ProductDetailsScreen } from '@screens/productDetailsScreen/productDetailsScreen';
 
 const Stack = createNativeStackNavigator<TRootStackParamList>();
 
@@ -21,6 +26,13 @@ const InAppNavigation = () => {
       <Stack.Screen
         name={SEARCH_SCREEN}
         component={SearchScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name={PRODUCT_DETAILS_SCREEN}
+        component={ProductDetailsScreen}
         options={{
           headerShown: false,
         }}

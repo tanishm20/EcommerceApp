@@ -15,7 +15,10 @@ import {
 import Carousel from 'react-native-reanimated-carousel';
 import productList from '@mockData/ProductList.json';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
-import { SEARCH_SCREEN } from 'src/utils/routesConstants';
+import {
+  PRODUCT_DETAILS_SCREEN,
+  SEARCH_SCREEN,
+} from 'src/utils/routesConstants';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useDispatch } from 'react-redux';
 import { setFilteredData } from './redux/home.api.slice';
@@ -96,7 +99,11 @@ export const HomeScreen = () => {
         nestedScrollEnabled
         contentContainerStyle={styles.carouselContainer}
         renderItem={({ item }) => (
-          <View style={styles.productCard}>
+          <Pressable
+            style={styles.productCard}
+            onPress={() => {
+              navigation.navigate(PRODUCT_DETAILS_SCREEN, { product: item });
+            }}>
             <Image
               source={{ uri: item.image }}
               style={styles.productImage}
@@ -110,7 +117,7 @@ export const HomeScreen = () => {
                   {tag}
                 </Text>
               ))}
-          </View>
+          </Pressable>
         )}
       />
     </KeyboardAvoidingView>
@@ -159,9 +166,7 @@ const styles = StyleSheet.create({
   searchButton: {
     backgroundColor: 'black',
     borderRadius: 16,
-
     flex: 0.15,
-
     justifyContent: 'center',
     marginVertical: 12,
     overflow: 'hidden',
