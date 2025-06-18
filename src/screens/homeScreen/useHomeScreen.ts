@@ -5,6 +5,7 @@ import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { SEARCH_SCREEN } from '@utils/routesConstants';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { setFilteredData } from './redux/home.api.slice';
+import { Alert } from 'react-native';
 
 export const useHomeScreen = () => {
   const [query, setQuery] = useState<string>();
@@ -22,8 +23,10 @@ export const useHomeScreen = () => {
     setQuery(undefined);
     dispatch(setFilteredData({ data: filtered.length ? filtered : undefined }));
 
-    if (filtered.length > 0) {
+    if (filtered.length) {
       navigation.navigate(SEARCH_SCREEN);
+    } else {
+      Alert.alert("Sorry, we couldn't find any results. Please try again.");
     }
   };
 
