@@ -11,6 +11,7 @@ import { BackComponent } from '@common/backComponent/backComponent';
 import { PriceSummarySection } from './component/priceSummary/priceSummary';
 import { CartItem } from './component/cartItem/cartItem';
 import { PaymentMethodSection } from './component/paymentMethod/paymentMethod';
+import { LoadingModal } from 'src/common/loadingModal/loadingModal';
 
 export const CartSummaryScreen = () => {
   const {
@@ -23,6 +24,7 @@ export const CartSummaryScreen = () => {
     totalPrice,
     shipping,
     vat,
+    isLoading,
   } = useCartSummaryScreen();
 
   if (isCartEmpty) {
@@ -38,6 +40,7 @@ export const CartSummaryScreen = () => {
 
   return (
     <>
+      <LoadingModal visible={isLoading} />
       <View style={styles.container}>
         <BackComponent />
         <FlatList
@@ -74,7 +77,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#000',
     borderRadius: 12,
-    padding: 16,
+    paddingVertical: 16,
   },
   checkoutText: {
     color: '#FEEF01',
@@ -99,7 +102,6 @@ const styles = StyleSheet.create({
   },
   secondContainer: {
     backgroundColor: '#FEEF0190',
-    paddingBottom: 16,
     paddingHorizontal: 16,
     paddingTop: 16,
   },

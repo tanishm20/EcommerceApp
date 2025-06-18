@@ -41,7 +41,7 @@ export const ProductDetailsScreen = () => {
         />
       </View>
       <TouchableOpacity style={styles.cartButton} onPress={onViewCartPress}>
-        <Text style={styles.cartText}>View cart ({getTotalItems()})</Text>
+        <Text style={styles.cartText}>View cart ({getTotalItems() ?? 0})</Text>
       </TouchableOpacity>
     </View>
   );
@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'black',
     borderRadius: 16,
-    margin: 16,
     paddingVertical: 12,
   },
   cartText: {
@@ -66,7 +65,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    padding: 16,
+    paddingVertical: 16,
   },
   description: {
     fontSize: 16,
@@ -81,6 +80,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     backgroundColor: '#FEEF0190',
     flex: 1,
+    paddingHorizontal: 16,
   },
   marginStyle: {
     marginTop: 4,

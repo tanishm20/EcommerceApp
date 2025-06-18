@@ -12,6 +12,7 @@ export const useCartSummaryScreen = () => {
   const dispatch = useDispatch();
   const cartData = useSelector(selectCartItemData);
   const { getItemCount } = useCartHook();
+  const [isLoading, setIsLoading] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState('Cash on Delivery');
 
   const totalPrice =
@@ -23,8 +24,12 @@ export const useCartSummaryScreen = () => {
   const isCartEmpty = !cartData || cartData.length === 0;
 
   const onPlaceOrderPress = () => {
-    dispatch(setCartItem({ data: undefined }));
-    navigation.navigate(SUCCESS_SCREEN);
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      navigation.navigate(SUCCESS_SCREEN);
+      dispatch(setCartItem({ data: undefined }));
+    }, 1000);
   };
 
   return {
@@ -37,5 +42,6 @@ export const useCartSummaryScreen = () => {
     totalPrice,
     shipping,
     vat,
+    isLoading,
   };
 };

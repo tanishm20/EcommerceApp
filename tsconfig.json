@@ -14,7 +14,6 @@
     "baseUrl": "./",
     "paths": {
       "src/*": ["./src/*"],
-      "@assets/*": ["./src/assets/*"],
       "@common/*": ["./src/common/*"],
       "@navigation/*": ["./src/navigation/*"],
       "@redux/*": ["./src/redux/*"],
@@ -28,17 +27,13 @@
     "App.tsx",
     "src",
     "src/*",
-    "src/assets",
     "src/common",
     "src/navigation",
     "src/redux",
     "src/screens",
     "src/utils",
     "src/mockData",
-    "src/hooks",
-    "mock-server",
-    "__tests__",
-    "@types/*"
+    "src/hooks"
   ],
   "exclude": ["node_modules", "node_modules/*"]
 }

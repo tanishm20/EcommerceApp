@@ -10,6 +10,7 @@ import { useCartScreen } from './useCartScreen';
 import { RemoveItemModal } from '@screens/cartScreen/component/removeItemModal/removeItemModal';
 import { CartItem } from '@screens/cartScreen/component/cartItem/cartItem';
 import { BackComponent } from '@common/backComponent/backComponent';
+import { TProductType } from '../productDetailsScreen/type/productType';
 
 export const CartScreen = () => {
   const {
@@ -26,6 +27,15 @@ export const CartScreen = () => {
     getTotalQuantity,
   } = useCartScreen();
 
+  const renderItem = ({ item }: { item: TProductType }) => (
+    <CartItem
+      item={item}
+      quantity={getItemCount(item)}
+      onAdd={onAddToCart(item)}
+      onRemove={onRemoveFromCart(item)}
+      onRemovePress={onRemovePress(item)}
+    />
+  );
   return (
     <>
       <View style={styles.container}>
@@ -43,15 +53,7 @@ export const CartScreen = () => {
           <FlatList
             data={cartData}
             keyExtractor={item => item.id}
-            renderItem={({ item }) => (
-              <CartItem
-                item={item}
-                quantity={getItemCount(item)}
-                onAdd={onAddToCart(item)}
-                onRemove={onRemoveFromCart(item)}
-                onRemovePress={onRemovePress(item)}
-              />
-            )}
+            renderItem={renderItem}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.list}
           />
@@ -88,7 +90,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#000',
     borderRadius: 12,
-    padding: 16,
+    paddingVertical: 16,
   },
   checkoutText: {
     color: '#FEEF01',
@@ -120,7 +122,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 12,
     borderWidth: 1,
-    marginBottom: 4,
+    marginBottom: 12,
     marginTop: 12,
     padding: 16,
   },
