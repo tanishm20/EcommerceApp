@@ -1,134 +1,65 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   View,
   Text,
-  Image,
-  StyleSheet,
   FlatList,
   TouchableOpacity,
-  Modal,
-  Pressable,
+  StyleSheet,
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { IProductDataType } from '../homeScreen/redux/home.initialState';
-import { useCartHook } from 'src/hooks/useCartHook';
-import { selectCartItemData } from '../productDetailsScreen/redux/product.api.selector';
-import { setCartItem } from '../productDetailsScreen/redux/product.api.slice';
-import { ParamListBase, useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { CART_SUMMARY_SCREEN } from 'src/utils/routesConstants';
+import { useCartScreen } from './useCartScreen';
+import { RemoveItemModal } from '@common/removeItemModal';
+import { CartItem } from 'src/screens/cartScreen/component/cartItem/cartItem';
+import { BackComponent } from 'src/common/backComponent';
 
 export const CartScreen = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
-  const dispatch = useDispatch();
-  const cartData = useSelector(selectCartItemData);
-  const { addToCart, removeFromCart, getItemCount } = useCartHook();
-  const [modalVisible, setModalVisible] = useState(false);
-  const [itemToRemove, setItemToRemove] = useState<IProductDataType>();
+  const {
+    confirmRemove,
+    getItemCount,
+    onRemoveFromCart,
+    onAddToCart,
+    onRemovePress,
+    modalVisible,
+    isCartEmpty,
+    setModalVisible,
+    cartData,
+    onCheckoutPress,
+    getTotalQuantity,
+  } = useCartScreen();
 
-  const confirmRemove = () => {
-    if (itemToRemove) {
-      const updatedCartData = cartData?.filter(
-        item => item.id !== itemToRemove.id,
-      );
-      dispatch(setCartItem({ data: updatedCartData }));
-      setItemToRemove(undefined);
-    }
-    setModalVisible(false);
-  };
-
-  const renderItem = ({ item }: { item: IProductDataType }) => {
-    const quantity = getItemCount(item);
-    return (
-      <View style={styles.itemRow}>
-        <Image source={{ uri: item.image }} style={styles.image} />
-        <View style={styles.detailsColumn}>
-          <Text style={styles.name}>{item.name}</Text>
-          <Text style={styles.price}>₹{item.price}</Text>
-          <View style={styles.controls}>
-            <TouchableOpacity
-              onPress={() => removeFromCart(item)}
-              disabled={quantity <= 1}
-              style={[
-                styles.controlButton,
-                quantity <= 1 && styles.disabledButton,
-              ]}>
-              <Text style={styles.controlText}>-</Text>
-            </TouchableOpacity>
-            <Text style={styles.qty}>{quantity}</Text>
-            <TouchableOpacity
-              onPress={() => addToCart(item)}
-              disabled={quantity >= 10}
-              style={[
-                styles.controlButton,
-                quantity >= 10 && styles.disabledButton,
-              ]}>
-              <Text style={styles.controlText}>+</Text>
-            </TouchableOpacity>
-          </View>
-          <TouchableOpacity
-            onPress={() => {
-              setItemToRemove(item);
-              setModalVisible(true);
-            }}>
-            <Text style={styles.removeText}>Remove</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    );
-  };
-
-  const isCartEmpty = !cartData || cartData.length === 0;
-  const onBackClick = () => {
-    navigation.goBack();
-  };
-
-  const modal = () => {
-    return (
-      <Modal transparent visible={modalVisible} animationType="fade">
-        <View style={styles.modalBackdrop}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalText}>
-              Do you want to remove this item?
-            </Text>
-            <View style={styles.modalButtons}>
-              <Pressable onPress={confirmRemove} style={styles.modalConfirm}>
-                <Text style={styles.modalButtonText}>Yes</Text>
-              </Pressable>
-              <Pressable
-                onPress={() => setModalVisible(false)}
-                style={styles.modalCancel}>
-                <Text style={styles.modalButtonText}>Cancel</Text>
-              </Pressable>
-            </View>
-          </View>
-        </View>
-      </Modal>
-    );
-  };
   return (
     <>
       <View style={styles.container}>
-        {modal()}
-        <TouchableOpacity activeOpacity={1} onPress={onBackClick}>
-          <Text style={styles.backButton}>{'← Back'}</Text>
-        </TouchableOpacity>
+        <RemoveItemModal
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+          confirmRemove={confirmRemove}
+        />
+        <BackComponent />
         {isCartEmpty ? (
           <Text style={styles.emptyText}>
             No items in cart. Add some items to checkout.
           </Text>
         ) : (
           <FlatList
-            showsVerticalScrollIndicator={false}
             data={cartData}
             keyExtractor={item => item.id}
-            renderItem={renderItem}
+            renderItem={({ item }) => (
+              <CartItem
+                item={item}
+                quantity={getItemCount(item)}
+                onAdd={onAddToCart(item)}
+                onRemove={onRemoveFromCart(item)}
+                onRemovePress={onRemovePress(item)}
+              />
+            )}
+            showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.list}
           />
         )}
       </View>
+
       <View style={styles.secondContainer}>
-        {!isCartEmpty ? (
+        {!isCartEmpty && (
           <View style={styles.priceDetailsContainer}>
             <Text style={styles.priceHeader}>Total Order Summary</Text>
             <View style={styles.priceRow}>
@@ -137,18 +68,13 @@ export const CartScreen = () => {
             </View>
             <View style={styles.priceRow}>
               <Text>Total Quantity</Text>
-              <Text>
-                {cartData?.reduce((acc, item) => acc + getItemCount(item), 0) ||
-                  0}
-              </Text>
+              <Text>{getTotalQuantity}</Text>
             </View>
           </View>
-        ) : null}
+        )}
         <TouchableOpacity
           style={[styles.checkoutButton, isCartEmpty && styles.disabledButton]}
-          onPress={() => {
-            navigation.navigate(CART_SUMMARY_SCREEN);
-          }}
+          onPress={onCheckoutPress}
           disabled={isCartEmpty}>
           <Text style={styles.checkoutText}>Checkout</Text>
         </TouchableOpacity>
@@ -158,10 +84,6 @@ export const CartScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  backButton: {
-    fontSize: 18,
-    fontWeight: '600',
-  },
   checkoutButton: {
     alignItems: 'center',
     backgroundColor: '#000',
@@ -179,26 +101,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 16,
   },
-  controlButton: {
-    backgroundColor: '#000',
-    borderRadius: 8,
-    marginHorizontal: 4,
-    padding: 8,
-  },
-  controlText: {
-    color: '#FEEF01',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  controls: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    marginTop: 8,
-  },
-  detailsColumn: {
-    flex: 1,
-    justifyContent: 'center',
-  },
+
   disabledButton: {
     backgroundColor: '#808080',
   },
@@ -209,73 +112,9 @@ const styles = StyleSheet.create({
     marginTop: 48,
     textAlign: 'center',
   },
-  image: {
-    borderRadius: 8,
-    height: 100,
-    marginRight: 12,
-    width: 100,
-  },
-  itemRow: {
-    backgroundColor: '#fff',
-    borderRadius: 12,
-    flexDirection: 'row',
-    marginBottom: 24,
-    padding: 12,
-  },
+
   list: {
     paddingTop: 12,
-  },
-  modalBackdrop: {
-    alignItems: 'center',
-    backgroundColor: '#00000099',
-    flex: 1,
-    justifyContent: 'center',
-  },
-  modalButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  modalButtons: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-  },
-  modalCancel: {
-    alignItems: 'center',
-    backgroundColor: '#808080',
-    borderRadius: 8,
-    flex: 1,
-    marginLeft: 8,
-    padding: 12,
-  },
-  modalConfirm: {
-    alignItems: 'center',
-    backgroundColor: '#000',
-    borderRadius: 8,
-    flex: 1,
-    marginRight: 8,
-    padding: 12,
-  },
-  modalContent: {
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 16,
-    padding: 24,
-    width: '80%',
-  },
-  modalText: {
-    fontSize: 18,
-    marginBottom: 16,
-    textAlign: 'center',
-  },
-  name: {
-    fontSize: 18,
-    fontWeight: '600',
-  },
-  price: {
-    color: '#8B0000',
-    fontSize: 16,
-    marginVertical: 4,
   },
   priceDetailsContainer: {
     backgroundColor: '#fff',
@@ -294,17 +133,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: 4,
-  },
-  qty: {
-    fontSize: 18,
-    fontWeight: '600',
-    marginHorizontal: 6,
-  },
-  removeText: {
-    color: '#FF0000',
-    fontSize: 14,
-    marginTop: 8,
-    textDecorationLine: 'underline',
   },
   secondContainer: {
     backgroundColor: '#FEEF0190',
